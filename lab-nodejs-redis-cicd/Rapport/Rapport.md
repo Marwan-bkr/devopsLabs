@@ -43,3 +43,31 @@ After a few errors of ports and missing Redis services, the web page worked perf
 ![](/Users/marwan/Library/Application%20Support/marktext/images/21b63049e41e04e1894e5bb894dd18acf3fd25dd.jpeg)
 
 ## Lab CI/CD
+
+### Part 1. Continuous Integration with GitHub Actions
+
+We don't have difficulty to implement Github Actions except with two configuration.
+
+- The lab is in a subfolder of the repo
+
+- The folder of the lab raise errors from sensitive software
+
+So we can say that Github Actions is a little bit sensitive to special character, space, etc. We just need to specify working-directory.
+
+![](/Users/marwan/Library/Application%20Support/marktext/images/4863a9e14f383def67641fdcfe1a868e60bc36a5.png)
+
+### Part 2. Continuous Delivery (Deployment) with ~~Heroku~~ Render
+
+The setup of render was pretty soft. The main difficulties encountered was with subfolder app, the complex name of the app folder and running npm on the way to build in render.
+
+After many attempts, we finally decide to give up complex folder name. From "Lab NodeJS & Redis " to "lab-nodejs-redis-cicd".
+
+Even with specification of subfolder name containing the app during Render setup, we had to manually change "Root Directory" value.
+
+Then, the remote build of the app needed to correct "Build Command" from "npm" to "npm install".
+
+![](/Users/marwan/Library/Application%20Support/marktext/images/8dfbba5b11a8c9a3ee7cc9c08451119fcabf9dee.png)
+
+![](/Users/marwan/Library/Application%20Support/marktext/images/f13142d7b6c66f46210464f5f513fb4e8fe53de4.png) 
+
+Redis database was easier to setup than web service. Notably, we had to clear cache many times to ensure no such source of error.
