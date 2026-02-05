@@ -82,8 +82,19 @@ I have installed swagger ui in the wrong folder causing error.
 
 Swagger is an ESM-only which is incompatible with build 18.x. So I switch to redoc-express
 
+![](/Users/marwan/Library/Application%20Support/marktext/images/61fc6b83a49a341e79b8608f7bd06a710e8cbae0.png)
+
 Because of time we don't take the time to properly manage the project using full capabilities of github like branch for example. It's a matter of habit.
 
+## Questions
 
+Objective of the lab  
+
+- Possible application in the real world  
+  - To build a Saas.
+- Step in the DevOps cycle? Justify - ﻿﻿Problem encountered during the lab? How did you manage to solve the various problems? (Analysis of the problem starting from the error message, problem-solving process (Cite the links visited.)).
+  - Taking time to conceive the solution is essential to not enter in an endless cycle of debugging. So we take time to review the code, optimise functions and correct errors before pushing and building. We used to use AI chatbots, but giving the full context is something difficult.
+- ﻿﻿Purpose of the Lab (Is the lab's objective met?) If yes, why? If not, why? )
+  - Yes, we understand how to automate integration and deployment on the way to becoming better developers. Tests are an essential competence to master.
 
 Thanks !
