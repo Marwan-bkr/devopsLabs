@@ -5,29 +5,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT || 3000
 
-import('@scalar/express-api-reference').then((scalar) => {
-  app.use(
-    '/reference',
-    scalar.apiReference({
-      spec: {
-        content: {
-          openapi: '3.1.0',
-          info: { title: 'ECE Redis API', version: '1.0.0' },
-          paths: {
-            '/user': {
-              get: {
-                summary: 'Get all users',
-                responses: { '200': { description: 'OK' } },
-              },
-            },
-          },
-        },
-      },
-    })
-  );
-}).catch(err => {
-  console.error('Failed to load Scalar:', err);
-});
+const redoc = require('redoc-express');
 
 const db = require('./dbClient')
 db.on("error", (err) => {
@@ -43,30 +21,27 @@ app.get('/', (req, res) => res.send('Marwan and Hubert say "Hello World!"'))
 
 app.use('/user', userRouter)
 
-app.use(
+app.get('/docs/openapi.json', (req, res) => {
+  res.json({
+    openapi: '3.1.0',
+    info: { title: 'ECE Redis API', version: '1.0.0' },
+    paths: {
+      '/user': {
+        get: {
+          summary: 'Get all users',
+          responses: { '200': { description: 'OK' } }
+        }
+      }
+    }
+  });
+});
+
+app.get(
   '/reference',
-  apiReference({
-    theme: 'purple',
-    spec: {
-      content: {
-        openapi: '3.1.0',
-        info: {
-          title: 'ECE Redis API',
-          version: '1.0.0',
-        },
-        paths: {
-          '/data': {
-            get: {
-              summary: 'Get data from Redis',
-              responses: {
-                '200': { description: 'OK' },
-              },
-            },
-          },
-        },
-      },
-    },
-  }),
+  redoc({
+    title: 'API Docs',
+    specUrl: '/docs/openapi.json'
+  })
 );
 
 const server = app.listen(port, (err) => {

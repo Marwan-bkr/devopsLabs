@@ -80,6 +80,8 @@ No difficulty to implement Swagger UI except finding to safer way to implement i
 
 I have installed swagger ui in the wrong folder causing error.
 
+Swagger is an ESM-only which is incompatible with build 18.x. So I switch to redoc-express
+
 Because of time we don't take the time to properly manage the project using full capabilities of github like branch for example. It's a matter of habit.
 
 
