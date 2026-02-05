@@ -2,9 +2,9 @@ name: Node.js CI with Redis
 
 on:
   push:
-    branches: [ main, testCI ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main, testCI ]
+    branches: [ main, master ]
 
 jobs:
   build:
@@ -13,17 +13,12 @@ jobs:
     defaults:
       run:
         working-directory: './Lab NodeJS & Redis'
-
-    cache-dependency-path: './userapi/package-lock.json'
-
-    # Service containers to run with the job
+    
     services:
       redis:
         image: redis
-        # Map port 6379 on service container to the host
         ports:
           - 6379:6379
-        # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -43,9 +38,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: './Lab NodeJS & Redis/package-lock.json'
     
     - name: Install dependencies
       run: npm ci
+    
+    - name: Run build
+      run: npm run build --if-present
     
     - name: Run tests
       run: npm test
