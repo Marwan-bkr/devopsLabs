@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: ece-lab-cicd
+    runtime: node
+    repo: https://github.com/Marwan-bkr/devopsLabs.git
+    region: frankfurt
+    branch: main
+    rootDir: "Lab NodeJS & Redis"
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: REDIS_HOST
+        value: red-d628b7onputs739htssg.frankfurt-postgres.render.com # Use your actual host
+      - key: REDIS_PORT
+        value: "6379"
+      # Recommended: use the URL instead of host/port separately
+      - key: REDIS_URL
+        value: redis://red-d628b7onputs739htssg:6379
