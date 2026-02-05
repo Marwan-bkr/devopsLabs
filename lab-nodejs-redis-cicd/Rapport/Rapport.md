@@ -71,3 +71,7 @@ Then, the remote build of the app needed to correct "Build Command" from "npm" t
 ![](/Users/marwan/Library/Application%20Support/marktext/images/f13142d7b6c66f46210464f5f513fb4e8fe53de4.png) 
 
 Redis database was easier to setup than web service. Notably, we had to clear cache many times to ensure no such source of error.
+
+![](/Users/marwan/Library/Application%20Support/marktext/images/3e054dcaf715d0b5fc186545faa5ca2212b73fa3.png)
+
+Thanks !

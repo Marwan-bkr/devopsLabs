@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT || 3000
 
+const { apiReference } = require('@scalar/express-api-reference');
+
 const db = require('./dbClient')
 db.on("error", (err) => {
   console.error(err)
@@ -26,3 +28,29 @@ const server = app.listen(port, (err) => {
 
 
 module.exports = server
+
+app.use(
+  '/reference',
+  apiReference({
+    theme: 'purple',
+    spec: {
+      content: {
+        openapi: '3.1.0',
+        info: {
+          title: 'ECE Redis API',
+          version: '1.0.0',
+        },
+        paths: {
+          '/data': {
+            get: {
+              summary: 'Get data from Redis',
+              responses: {
+                '200': { description: 'OK' },
+              },
+            },
+          },
+        },
+      },
+    },
+  }),
+);
