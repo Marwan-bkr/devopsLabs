@@ -1,4 +1,1 @@
-$$Marwan$$ BENLKHIR and Maxime CORNU from ECE
-Marwan BENLKHIR and Maxime CORNU from ECE
-
-test 
+Marwan BENLKHIR and Hubert CHAVASSE from ECE
