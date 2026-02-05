@@ -10,6 +10,7 @@
   "author": "Sergei Kudinov",
   "license": "",
   "dependencies": {
+    "@scalar/express-api-reference": "^0.8.40",
     "body-parser": "^1.20.2",
     "express": "^4.17.2",
     "mixme": "^0.5.4",
