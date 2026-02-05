@@ -42,15 +42,12 @@ jobs:
         cache-dependency-path: 'lab-nodejs-redis-cicd/package-lock.json'  # Change this
     
     - name: Install dependencies
-      working-directory: ./lab-nodejs-redis-cicd
       run: npm ci
     
     - name: Run build
-      working-directory: ./lab-nodejs-redis-cicd
       run: npm run build --if-present
     
     - name: Run tests
-      working-directory: ./lab-nodejs-redis-cicd
       run: npm test
       env:
         REDIS_HOST: localhost
