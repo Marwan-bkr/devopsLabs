@@ -74,4 +74,10 @@ Redis database was easier to setup than web service. Notably, we had to clear ca
 
 ![](/Users/marwan/Library/Application%20Support/marktext/images/3e054dcaf715d0b5fc186545faa5ca2212b73fa3.png)
 
+### Bonus tasks
+
+No difficulty to implement Swagger UI except finding to safer way to implement it because of deprecated documentation.
+
+
+
 Thanks !

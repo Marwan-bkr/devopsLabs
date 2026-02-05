@@ -26,9 +26,6 @@ const server = app.listen(port, (err) => {
   console.log("Server listening the port " + port)
 })
 
-
-module.exports = server
-
 app.use(
   '/reference',
   apiReference({
@@ -54,3 +51,5 @@ app.use(
     },
   }),
 );
+
+module.exports = server
