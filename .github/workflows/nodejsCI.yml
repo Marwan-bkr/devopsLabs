@@ -10,6 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+    defaults:
+      run:
+        working-directory: './Lab NodeJS & Redis'
+
+    cache-dependency-path: './userapi/package-lock.json'
+
     # Service containers to run with the job
     services:
       redis:
