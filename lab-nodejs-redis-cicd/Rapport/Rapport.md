@@ -80,4 +80,6 @@ No difficulty to implement Swagger UI except finding to safer way to implement i
 
 
 
+Because of time we don't take the time to properly manage the project using full capabilities of github like branch for example. It's a matter of habit.
+
 Thanks !
