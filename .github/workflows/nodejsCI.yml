@@ -10,9 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+    # Set default working directory for all steps
     defaults:
       run:
-        working-directory: './Lab NodeJS & Redis'
+        working-directory: './Lab NodeJS & Redis'  # Change this to your actual folder
     
     services:
       redis:
@@ -38,7 +39,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: './Lab NodeJS & Redis/package-lock.json'
+        cache-dependency-path: './Lab NodeJS & Redis/package-lock.json'  # Change this
     
     - name: Install dependencies
       run: npm ci
