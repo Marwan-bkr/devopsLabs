@@ -2,9 +2,9 @@ name: Node.js CI with Redis
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, testCI ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, testCI ]
 
 jobs:
   build:
