@@ -5,14 +5,14 @@ services:
     repo: https://github.com/Marwan-bkr/devopsLabs.git
     region: frankfurt
     branch: main
-    rootDir: "Lab NodeJS & Redis"
+    rootDir: "lab-nodejs-redis-cicd"
     buildCommand: "npm install"
     startCommand: "npm start"
     envVars:
       - key: NODE_ENV
         value: production
       - key: REDIS_HOST
-        value: red-d628b7onputs739htssg.frankfurt-postgres.render.com # Use your actual host
+        value: red-d628b7onputs739htssg # Use your actual host
       - key: REDIS_PORT
         value: "6379"
       # Recommended: use the URL instead of host/port separately

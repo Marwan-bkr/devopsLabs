@@ -28,7 +28,7 @@ jobs:
     # Set default working directory for all run steps
     defaults:
       run:
-        working-directory: './Lab NodeJS & Redis'  # Change this to your actual folder
+        working-directory: './lab-nodejs-redis-cicd'  # Change this to your actual folder
 
     steps:
     - name: Checkout code
@@ -39,7 +39,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: './Lab NodeJS & Redis/package-lock.json'  # Update this path
+        cache-dependency-path: './lab-nodejs-redis-cicd/package-lock.json'  # Update this path
         
     - name: Install dependencies
       run: npm ci
