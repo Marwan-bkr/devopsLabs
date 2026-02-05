@@ -5,7 +5,29 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT || 3000
 
-const { apiReference } = require('@scalar/express-api-reference');
+import('@scalar/express-api-reference').then((scalar) => {
+  app.use(
+    '/reference',
+    scalar.apiReference({
+      spec: {
+        content: {
+          openapi: '3.1.0',
+          info: { title: 'ECE Redis API', version: '1.0.0' },
+          paths: {
+            '/user': {
+              get: {
+                summary: 'Get all users',
+                responses: { '200': { description: 'OK' } },
+              },
+            },
+          },
+        },
+      },
+    })
+  );
+}).catch(err => {
+  console.error('Failed to load Scalar:', err);
+});
 
 const db = require('./dbClient')
 db.on("error", (err) => {
