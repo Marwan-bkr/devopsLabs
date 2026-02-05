@@ -1,4 +1,4 @@
-| Marwan BENLKHIR - ING4 Data&IA APP - Groupe 1     | <img title="" src="file:///Users/marwan/Documents/ece-dev/S8/DevOps/devopsLabs/Lab NodeJS & Redis /Rapport/image.png" alt="" width="146">                                    |
+| Marwan BENLKHIR - ING4 Data&IA APP - Groupe 1     | <img title="" src="file:///Users/marwan/Library/Application Support/marktext/images/96c5af7dd6678b756405f5142cb310d93922141c.png" alt="" width="146">                        |
 | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Hubert CHAVASSE - ING4 Data&IA APP - Groupe 1** | <img title="" src="file:///Users/marwan/Library/Application%20Support/marktext/images/d2826a477a6465e0166cddcd2485745ba2143a31.jpeg" alt="" width="110" data-align="center"> |
 
@@ -41,7 +41,5 @@ After a few errors of ports and missing Redis services, the web page worked perf
 **Testing**
 
 ![](/Users/marwan/Library/Application%20Support/marktext/images/21b63049e41e04e1894e5bb894dd18acf3fd25dd.jpeg)
-
-
 
 ## Lab CI/CD

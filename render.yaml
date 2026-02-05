@@ -6,8 +6,8 @@ services:
     region: frankfurt
     branch: main
     rootDir: "Lab NodeJS & Redis"
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: "npm install"
+    startCommand: "npm start"
     envVars:
       - key: NODE_ENV
         value: production
