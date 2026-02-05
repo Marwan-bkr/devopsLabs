@@ -74,6 +74,8 @@ Redis database was easier to setup than web service. Notably, we had to clear ca
 
 ![](/Users/marwan/Library/Application%20Support/marktext/images/3e054dcaf715d0b5fc186545faa5ca2212b73fa3.png)
 
+Click here to access it : https://devopslabs.onrender.com/
+
 ### Bonus tasks
 
 No difficulty to implement Swagger UI except finding to safer way to implement it because of deprecated documentation.
@@ -83,6 +85,8 @@ I have installed swagger ui in the wrong folder causing error.
 Swagger is an ESM-only which is incompatible with build 18.x. So I switch to redoc-express
 
 ![](/Users/marwan/Library/Application%20Support/marktext/images/61fc6b83a49a341e79b8608f7bd06a710e8cbae0.png)
+
+Click here to access it : https://devopslabs.onrender.com/reference
 
 Because of time we don't take the time to properly manage the project using full capabilities of github like branch for example. It's a matter of habit.
 
