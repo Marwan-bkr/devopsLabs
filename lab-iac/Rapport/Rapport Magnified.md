@@ -1,14 +1,13 @@
-une analyse précise de ce que je fais
+This lab was intentionally made on macOS in the way to deal with the complexity of compatibility, knowing that would take more skills and time. Indeed, many files, commands and tools were perfectly suited for Windows. A work of research, adaptation and developing IT skills was thus learned in a context of real application. We worked on this lab without being sure at 100% it was realisable in the given time frame. We may say this compatibility load is extra work that we hope you will consider.
 
 ## Before starting
 
-install vagrant 
+The goal was : get GitLab running in a Vagrant VM on my Apple Silicon Mac. The first steps were standard:
 
-install qemu
+- I installed **Vagrant**.
+- I installed **QEMU**, knowing that ARM64 support would be crucial.
 
-vagrant add red hat 9
-
-bug : solution : `vagrant plugin install vagrant-qemu`
+I immediately hit my first specific "bug" – Vagrant wasn't communicating with QEMU properly. The solution, thankfully, was a quick Google search away: `vagrant plugin install vagrant-qemu`. This was my first lesson in the ecosystem's specific requirements.
 
 ## Part 1. Imperative - Using Vagrant with Shell Provisioner
 

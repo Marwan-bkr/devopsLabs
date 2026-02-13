@@ -2,6 +2,8 @@ une analyse précise de ce que je fais
 
 ## Before starting
 
+This lab was intentionally made on macOS in the way to deal with the complexity of compatibility, knowing that would take more skills and time. Indeed, many files, commands and tools were perfectly suited for Windows. A work of research, adaptation and developing IT skills was thus learned in a context of real application. We worked on this lab without being sure at 100% it was realisable in the given time frame. We may say this compatibility load is extra work that we hope you will consider.
+
 install vagrant 
 
 install qemu
