@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "gitlab_server" do |server|
+    server.vm.box = "owndl/rocky10" 
+
+    # Network configuration
+    server.vm.network "forwarded_port", guest: 80, host: 8080
+    server.vm.network "private_network", ip: "192.168.121.240"
+
+    # Libvirt configuration for Apple Silicon
+    server.vm.provider :libvirt do |libvirt|
+      libvirt.driver = "qemu"
+      libvirt.machine_type = "q35"
+      libvirt.memory = 4096
+      libvirt.cpus = 4
+      libvirt.arch = "aarch64"
+      # This allocates the 50GB physical file on your Mac
+      libvirt.machine_virtual_size = 50 
+    end
+
+    # STEP 1: RESIZE THE OS PARTITION
+    # This stretches the internal partition to fill the 50GB
+    server.vm.provision "shell", inline: <<-SHELL
+      echo "Resizing internal partition /dev/vda3..."
+      dnf install -y cloud-utils-growpart
+      # Grow partition 3 on disk vda
+      growpart /dev/vda 3
+      # Resize the XFS filesystem to match the new partition size
+      xfs_growfs /
+      echo "Disk resize finished. Status of /:"
+      df -h /
+    SHELL
+
+    # STEP 2: RUN ANSIBLE
+    server.vm.provision "ansible_local" do |ansible|
+      ansible.playbook = "playbooks/run.yml"
+      ansible.tags = "install"
+      server.vm.synced_folder ".", "/vagrant"
+    end
+  end
+end
