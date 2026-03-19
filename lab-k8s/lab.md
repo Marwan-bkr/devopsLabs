@@ -124,19 +124,25 @@ kubectl scale deployments/kubernetes-bootcamp --replicas=5
 ## 5. Run a multiple pod application in Kubernetes
 
 1. Prepare to hit `CTRL+F5` on your browser multiple times right after launching the following command:
+
 2. Update the Docker image used by the `deployment` with:
    
    ```
    kubectl set image deployments/$DEPLOYMENT_NAME kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
    ```
+
 3. What happened to the web page?
+
 4. Update the Docker image used by the `deployment` again by setting the image to `jocatalin/kubernetes-bootcamp:v3`
+
 5. List all of the running pods, what is happening here?
+
 6. Cancel the previous operation by running:
    
    ```
    kubectl rollout undo deployments/kubernetes-bootcamp
    ```
+
 7. Roll back the service to the image we first chose in part 2 of the lab.
 
 ## 6. Deploy an app using Manifest yaml files

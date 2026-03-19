@@ -80,7 +80,7 @@ don't find arm64 box that works so switch to dl iso thus using qemu
 
 i tried several provider, rewrite Vargantfile and finally set the right configuration
 
-it works with [Rocky-9-Vagrant-Libvirt.latest.aarch64.box](https://download.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-Vagrant-Libvirt.latest.aarch64.box "Rocky-9-Vagrant-Libvirt.latest.aarch64.box")
+it works with https://download.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-Vagrant-Libvirt.latest.aarch64.box
 
 ### 2. Create and provision a virtual machine (VM)
 

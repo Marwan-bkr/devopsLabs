@@ -10,7 +10,7 @@
 
 ## 2. Learn to use `kubectl` commands
 
-My pod name :kubernetes-bootcamp-67fbdd6b79-drg6n
+My pod name is kubernetes-bootcamp-67fbdd6b79-drg6n
 
 ![](/Users/marwan/Library/Application%20Support/marktext/images/6f0a807483436cd42c73a0fbacd661a028df0dfe.png)
 
@@ -38,23 +38,21 @@ A load balancer manage redirection. As you can see, it redirect me to one of the
 
 ![](/Users/marwan/Library/Application%20Support/marktext/images/88d7ed7af5e54bae292eec94312111cf14cb659f.png)
 
-
-
 ## Questions
 
 Objective of the lab
 
 - Possible application in the real world
   
-  - To build and deploy a Saas on the web.
+  - To build and deploy a SaaS on the web.
 
 - Step in the DevOps cycle?
   
-  - Kubernetes corresponds to the build, deployment, and scale phases because it handles different platforms for software code. It can replicate easily.
+  - Kubernetes corresponds to the build, deployment, and scale phases because it handles different platforms to support software code. It can replicate with ease.
 
 - ﻿﻿Problem encountered during the lab? How did you manage to solve the various problems? (Analysis of the problem starting from the error message, problem-solving process (Cite the links visited.)).
   
-  - These are not difficulties but tasks that take a little bit more time than expected. There are:practice
+  - These are not difficulties but tasks that take a little bit more time than expected. There are :
     
     - Differencing minikube and kubectl
     
@@ -62,10 +60,6 @@ Objective of the lab
 
 - ﻿﻿Purpose of the Lab (Is the lab's objective met?) If yes, why? If not, why? )
   
-  - Yes, the lab allowed us to get an advanced understanding and pratice of such a fundamental system of nowadays.
-
-
-
-
+  - Yes, the lab allowed us to get an advanced understanding and pratice of such a fundamental systems of nowadays.
 
 Thanks !
