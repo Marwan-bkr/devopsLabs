@@ -1,4 +1,4 @@
-name: Node.js CI with Redis
+name: Project Node.js + Redis CI
 
 on:
   push:
