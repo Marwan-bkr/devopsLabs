@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ece-devops-project
+    name: devops-project
     runtime: node
     repo: https://github.com/Marwan-bkr/devopsLabs.git
     region: frankfurt
