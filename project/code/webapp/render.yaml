@@ -11,9 +11,8 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: REDIS_HOST
-        value: red-d628b7onputs739htssg
-      - key: REDIS_PORT
-        value: "6379"
       - key: REDIS_URL
-        value: redis://red-d628b7onputs739htssg:6379
+        fromService:
+          type: redis
+          name: ece-devops-project-valkey
+          property: connectionString
