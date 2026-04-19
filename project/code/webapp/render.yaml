@@ -12,4 +12,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: REDIS_URL
-        value: redis://red-d628b7onputs739htssg.frankfurt-redis.render.com:6379
+        value: redis://red-d628b7onputs739htssg:6379
