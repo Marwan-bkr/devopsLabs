@@ -18,7 +18,30 @@ cf plan
 
 1. cicd based on lab 3
    
+   - implement git versioning
+     
+     ```bash
+     git push --set-upstream origin project_dev_marwan
+     git commit -m "project 0.1.2 fix ci workflow"
+     ```
+   
    - create env for web app, running it locally and manually
+   
+   - implement ci
+     
+     i add to specify the path to push the new workflow
+     
+     ```bash
+     git add .github/workflows/projectci.yml
+     ```
+   
+   - first pull request
+   
+   - CD render
+     
+     - write code for web app : core functions and unit tests
+     
+     - reconnect database by changing dbclient.js, render.yaml, webapp render env
 
 ### 1. Create a web application
 

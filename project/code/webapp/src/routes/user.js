@@ -18,12 +18,24 @@ userRouter
         status: "success",
         msg: res
       }
-      resp.status(201).json(respObj)
+      return resp.status(201).json(respObj)
     })
   })
-  // .get('/:username', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
-  //   // TODO Create get method API
-  //   const username = req.params.username
-  // })
+  .get('/', (req, resp) => {
+     userController.get(req.body.username, (err, res) => {
+      if (err) {
+        respObj = {
+          status: "error",
+          msg: err.message
+        }
+        return resp.status(400).json(respObj)
+      }
+      respObj = {
+        status: "success",
+        msg: res
+      }
+      return resp.status(201).json(respObj)
+    });
+   });
   
 module.exports = userRouter

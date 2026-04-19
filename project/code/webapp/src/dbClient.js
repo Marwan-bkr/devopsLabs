@@ -1,17 +1,23 @@
 var redis = require("redis");
-const configure = require('./configure')
+const configure = require('./configure');
+const config = configure();
 
-const config = configure()
+const redisUrl = process.env.REDIS_URL || `redis://${config.redis.host}:${config.redis.port}`;
+
 var db = redis.createClient({
-  host: config.redis.host,
-  port: config.redis.port,
-  retry_strategy: () => {
-    return new Error("Retry time exhausted")
-  }
-})
-
-process.on('SIGINT', function() {
-  db.quit();
+    url: redisUrl,
+    socket: {
+        reconnectStrategy: (retries) => Math.min(retries * 100, 3000)
+    }
 });
 
-module.exports = db
+db.on('error', (err) => {
+    console.error('Valkey/Redis Error:', err.message);
+    if (err.code === 'CONNECTION_BROKEN') {
+        console.log('Attempting to recover broken connection...');
+    }
+});
+
+db.on('ready', () => console.log('Valkey is ready and connected!'));
+
+module.exports = db;

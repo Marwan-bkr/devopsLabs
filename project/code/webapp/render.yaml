@@ -1,20 +1,15 @@
 services:
   - type: web
-    name: ece-lab-cicd
+    name: devops-project
     runtime: node
     repo: https://github.com/Marwan-bkr/devopsLabs.git
     region: frankfurt
     branch: main
-    rootDir: "lab-nodejs-redis-cicd"
+    rootDir: "project/code/webapp"
     buildCommand: "npm install"
     startCommand: "npm start"
     envVars:
       - key: NODE_ENV
         value: production
-      - key: REDIS_HOST
-        value: red-d628b7onputs739htssg # Use your actual host
-      - key: REDIS_PORT
-        value: "6379"
-      # Recommended: use the URL instead of host/port separately
       - key: REDIS_URL
         value: redis://red-d628b7onputs739htssg:6379
