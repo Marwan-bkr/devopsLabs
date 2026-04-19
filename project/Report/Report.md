@@ -41,7 +41,7 @@ cf plan
      
      - write code for web app : core functions and unit tests
      
-     - reconnect database
+     - reconnect database by changing dbclient.js, render.yaml, webapp render env
 
 ### 1. Create a web application
 
