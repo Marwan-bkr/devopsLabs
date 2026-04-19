@@ -12,7 +12,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: ece-devops-project-valkey
-          property: connectionString
+        value: redis://red-d628b7onputs739htssg.frankfurt-redis.render.com:6379
