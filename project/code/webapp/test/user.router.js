@@ -8,7 +8,6 @@ chai.use(chaiHttp)
 describe('User REST API', () => {
   
     beforeEach(() => {
-      // Clean DB before each test
       db.flushdb()
     })
     
@@ -59,7 +58,33 @@ describe('User REST API', () => {
     })
   })
 
-  // describe('GET /user', ()=> {
-  //   // TODO Create test for the get method
-  // })
+  describe('GET /user', ()=> {
+    it('get a user', (done) => {
+      const user = {
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
+      }
+      chai.request(app)
+        .post('/user')
+        .send(user)
+        .then((res1) => {
+          chai.expect(res1).to.have.status(201)
+          chai.expect(res1.body.status).to.equal('success')
+          chai.expect(res1).to.be.json
+        })
+      chai.request(app)
+        .get('/user')
+        .send(user)
+        .then((res2) => {
+          chai.expect(res2).to.have.status(201)
+          chai.expect(res2.body.status).to.equal('success')
+          chai.expect(res2).to.be.json
+          done()
+        })
+        .catch((err) => {
+             throw err
+        })
+    })
+  })
 })

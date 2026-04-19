@@ -2,22 +2,30 @@ const db = require('../dbClient')
 
 module.exports = {
   create: (user, callback) => {
-    // Check parameters
-    if(!user.username)
+    if(!user.username || !user.firstname || !user.lastname)
       return callback(new Error("Wrong user parameters"), null)
-    // Create User schema
-    const userObj = {
-      firstname: user.firstname,
-      lastname: user.lastname,
-    }
-    // Save to DB
-    // TODO check if user already exists
-    db.hmset(user.username, userObj, (err, res) => {
-      if (err) return callback(err, null)
-      callback(null, res) // Return callback
+    
+    db.hgetall(user.username, (err, res) => {
+      if (res) {
+        return callback(new Error('Username already exists'), null)
+      }
+      const userObj = {
+        firstname: user.firstname,
+        lastname: user.lastname,
+      }
+      db.hmset(user.username, userObj, (err, res) => {
+        if (err) return callback(err, null)
+        return callback(null, res)
+      })
     })
   },
-  // get: (username, callback) => {
-  //   // TODO create this method
-  // }
-}
+  get: (username, callback) => {
+    db.hgetall(username, (err, res) => {
+      if (err) {
+        return callback(err, null);
+      }
+      return callback(null, res);
+    });
+  },
+};
+ 

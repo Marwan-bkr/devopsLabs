@@ -38,6 +38,10 @@ cf plan
    - first pull request
    
    - CD render
+     
+     - write code for web app : core functions and unit tests
+     
+     - reconnect database
 
 ### 1. Create a web application
 
