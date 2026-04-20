@@ -1,0 +1,28 @@
+---
+- name: Install PM2 globally
+  npm:
+    name: pm2
+    global: yes
+    state: present
+
+- name: Install App dependencies
+  npm:
+    path: "/vagrant"
+    state: present
+
+- name: Set SELinux to permissive (for development only)
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: Start or Reload App with PM2
+  shell: |
+    export PATH=$PATH:/usr/local/bin:/usr/bin
+    cd /vagrant
+    if pm2 info devops-app > /dev/null 2>&1; then
+      pm2 reload devops-app
+    else
+      pm2 start src/index.js --name "devops-app" \
+        --env REDIS_URL="redis://127.0.0.1:6379" \
+        --env PORT=10000
+    fi
