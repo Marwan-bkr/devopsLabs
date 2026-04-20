@@ -1,0 +1,9 @@
+---
+- name: Check if Redis is responding
+  command: redis-cli ping
+  register: redis_ping
+  failed_when: "'PONG' not in redis_ping.stdout"
+
+- name: Verify Node.js is available
+  command: node -v
+  changed_when: false

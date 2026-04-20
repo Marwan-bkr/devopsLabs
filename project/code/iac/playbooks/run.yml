@@ -1,0 +1,8 @@
+---
+- name: Provision node.js and redis env
+  hosts: all
+  become: true
+  roles:
+    - install
+    - healthchecks
+    - app

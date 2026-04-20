@@ -1,0 +1,39 @@
+---
+- name: Install EPEL repository
+  dnf:
+    name: epel-release
+    state: present
+
+- name: Install Node.js and Redis
+  dnf:
+    name: 
+      - nodejs
+      - redis
+      - gcc-c++
+      - make
+      - npm
+    state: present
+
+- name: Configure Redis to listen on all interfaces
+  lineinfile:
+    path: /etc/redis/redis.conf
+    regexp: '^bind 127.0.0.1'
+    line: 'bind 0.0.0.0'
+  notify: Restart Redis
+
+- name: Ensure Redis is started and enabled
+  service:
+    name: redis
+    state: started
+    enabled: yes
+
+- name: Open Redis and App ports in firewall
+  firewalld:
+    port: "{{ item }}"
+    permanent: yes
+    state: enabled
+    immediate: yes
+  loop:
+    - 6379/tcp
+    - 10000/tcp
+  ignore_errors: yes

@@ -36,12 +36,43 @@ cf plan
      ```
    
    - first pull request
+
+2. CD render
    
-   - CD render
+   - write code for web app : core functions and unit tests
+   
+   - reconnect database by changing dbclient.js, render.yaml, webapp render env
+   
+   - enhance api redoc
+   
+   - second pull request
+   
+   available here : https://devopslabs.onrender.com
+
+3. vagrant + ansible
+   
+   - setup 
      
-     - write code for web app : core functions and unit tests
-     
-     - reconnect database by changing dbclient.js, render.yaml, webapp render env
+     ```bash
+     vagrant up --provider qemu
+     ```
+
+                with several tries to overcome installations, compatibility between vagrant and ansible, changing vagrantfile and playbook files. provision was difficult because of internet access, handling my arborescence
+
+4. docker
+   
+   [8meta/devops_project_webapp - Docker Image](https://hub.docker.com/r/8meta/devops_project_webapp)
+   
+   and there is a public-docker-compose.yml to ...
+
+NB : 
+
+- every files are closely enterlace. iac for vagrant and ansible reach the webapp at the code/ level , the webapp/ can run even with docker files in. 
+
+- all the project is arm
+5. K8s
+
+
 
 ### 1. Create a web application
 
@@ -68,3 +99,7 @@ cf plan
 
 
 ## Bonuses
+
+
+
+### bilan personnel
