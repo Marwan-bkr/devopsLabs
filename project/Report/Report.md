@@ -67,39 +67,36 @@ cf plan
 
 NB : 
 
-- every files are closely enterlace. iac for vagrant and ansible reach the webapp at the code/ level , the webapp/ can run even with docker files in. 
+- every files are closely enterlace. iac for vagrant and ansible reach the webapp at the code/ level , the webapp/ can run even with docker files in.
 
 - all the project is arm
 5. K8s
-
-
+   1- dev deployment.yaml and service.yaml
+      
+      kubectl apply -f deployment.yaml
+      
+      kubectl apply -f service.yaml
+   
+   2- I figuring out that only the web app was deployed without the redis database so let's refactor the docker file to be able to launch th whole app (webapp+redis) from k8s by helm
+      
+      
+      
+      
+      
+       
 
 ### 1. Create a web application
 
-
-
 ### 2. Apply CI/CD pipeline
-
-
 
 ### 3. Configure and provision a virtual environment and run your application using the IaC approach
 
-
-
 ### 4. Build Docker image of your application
-
-
 
 ### 6. Make deployment using Kubernetes
 
-
-
 ### 5. Document your project
 
-
-
 ## Bonuses
-
-
 
 ### bilan personnel
