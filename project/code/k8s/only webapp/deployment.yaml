@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-webapp-deployment
+  labels:
+    app: kubernetes-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubernetes-webapp
+  template:
+    metadata:
+      labels:
+        app: kubernetes-webapp
+    spec:
+      containers:
+      - name: kubernetes-webapp
+        image: 8meta/devops_project_webapp:latest
+        ports:
+        - containerPort: 80

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "wholeapp-chart.name" . }}-redis
+  labels:
+    {{ include "wholeapp-chart.labels" . | nindent 4 }}
+    app.kubernetes.io/component: redis
+spec:
+  serviceName: {{ include "wholeapp-chart.name" . }}-redis-service
+  replicas: 1
+  selector:
+    matchLabels:
+      {{ include "wholeapp-chart.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: redis
+  template:
+    metadata:
+      labels:
+        {{ include "wholeapp-chart.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: redis
+    spec:
+      containers:
+      - name: redis
+        image: "{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}"
+        imagePullPolicy: {{ .Values.redis.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.redis.service.targetPort }}
+          name: redis-cache
+        command: ["redis-server"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "wholeapp-chart.name" . }}-redis-service
+  labels:
+    {{ include "wholeapp-chart.labels" . | nindent 4 }}
+    app.kubernetes.io/component: redis
+spec:
+  ports:
+  - port: {{ .Values.redis.service.port }}
+    targetPort: {{ .Values.redis.service.targetPort }}
+    protocol: TCP
+    name: redis
+  clusterIP: None
+  selector:
+    {{ include "wholeapp-chart.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/component: redis
+
