@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "wholeapp-chart.name" . }}-redis
+  labels:
+    {{ include "wholeapp-chart.labels" . | nindent 4 }}
+    app.kubernetes.io/component: redis
+spec:
+  type: {{ .Values.redis.service.type }}
+  ports:
+    - port: {{ .Values.redis.service.port }}
+      targetPort: {{ .Values.redis.service.targetPort }}
+      protocol: TCP
+      name: redis
+  selector:
+    {{ include "wholeapp-chart.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/component: redis
